@@ -99,6 +99,12 @@ int main() {
     }
     v2.clear();
     //构造哈夫曼树，取权值最小的两个节点，最终构造一个最大堆
+    if (huffmanTree.size() == 1) {
+        Node* temp = new Node('\0', 0);
+        temp->left = huffmanTree.top();
+        huffmanTree.pop();
+        huffmanTree.push(temp);
+    }
     while (huffmanTree.size() != 1) {
         Node *left = huffmanTree.top();
         huffmanTree.pop();
